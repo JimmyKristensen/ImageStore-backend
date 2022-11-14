@@ -1,4 +1,4 @@
-package com.example.imagestore.Image;
+package com.example.imagestore.Image.Model;
 
 
 import javax.persistence.Entity;
