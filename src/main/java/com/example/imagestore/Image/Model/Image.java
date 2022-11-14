@@ -5,32 +5,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.awt.*;
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class image {
+@Table(name="Image")
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date date;
-    private String user;
+    private String ost;
     private String name;
     private String size;
     private String image;
     private String title;
     private String description;
 
-    public image(Date date, String user, String name, String size, String image, String title, String description) {
+    public Image(Date date, String ost, String name, String size, String image, String title, String description) {
         this.date = date;
-        this.user = user;
+        this.ost = ost;
         this.name = name;
         this.size = size;
         this.image = image;
@@ -42,7 +39,7 @@ public class image {
     public String toString() {
         return "image{" +
                 "date=" + date +
-                ", user='" + user + '\'' +
+                ", user='" + ost + '\'' +
                 ", name='" + name + '\'' +
                 ", size='" + size + '\'' +
                 ", image='" + image + '\'' +

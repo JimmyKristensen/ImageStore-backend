@@ -1,6 +1,6 @@
 package com.example.imagestore.Image.Service;
 
-import com.example.imagestore.Image.Model.image;
+import com.example.imagestore.Image.Model.Image;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -8,28 +8,28 @@ import java.util.Optional;
 
 @Service
 public class ImageService {
-    private final CrudRepository<image, Long> repository;
-    public ImageService(CrudRepository<image, Long> repository){
+    private final CrudRepository<Image, Long> repository;
+    public ImageService(CrudRepository<Image, Long> repository){
         this.repository = repository;
     }
 
-    public Iterable<image> findAll() {
+    public Iterable<Image> findAll() {
         return repository.findAll();
     }
 
-    public Optional<image> find(Long id) {
+    public Optional<Image> find(Long id) {
         return repository.findById(id);
     }
 
-    public image create(image image) {
+    public Image create(Image image) {
         return repository.save(image);
     }
 
-    public image update(Long id, image image) {
+    public Image update(Long id, Image image) {
         return repository.save(image);
     }
 
-    public image delete(long id) {
+    public Image delete(long id) {
         repository.deleteById(id);
         return null;
     }
