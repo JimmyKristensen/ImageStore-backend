@@ -15,16 +15,16 @@ import java.util.Optional;
 public class ImageController {
     private final ImageService service;
 
-    public ImageController(ImageService service) {
-        this.service = service;
-    }
-
-    @GetMapping()
+    @GetMapping("/all")
     public Iterable<image> FindAllImages(){
         return service.findAll();
     }
 
-    @GetMapping("/{id")
+    public ImageController(ImageService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/{id}")
     public ResponseEntity<image> find(@PathVariable("id") Long id){
         Optional<image> image = Optional.of(service.find(id))
                 .orElseThrow(() -> new RuntimeException("Image not found.".formatted((id))));
@@ -43,7 +43,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<image> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<image> delete(@PathVariable("/id") Long id) {
         service.find(id).orElseThrow(() -> new RuntimeException("Activity not found.".formatted(id)));
 
         image delete = service.delete(id);
